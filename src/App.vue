@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/novo-usuario">Novo Usuário</router-link> |
-      <router-link to="/login">Login</router-link>
-      <button @click="handleSignOut()" v-if="isLoggedIn">Sair</button>
+      <router-link to="/">Home</router-link> <span>|</span>
+      <router-link to="/novo-usuario">Novo Usuário</router-link> <span>|</span>
+      <router-link to="/login">Login</router-link> <span>|</span>
+      <router-link to="/area-restrita">Área Restrita</router-link>
+      <button class="btn btn-logout" @click="handleSignOut()" v-if="isLoggedIn"><font-awesome-icon icon="fa-solid fa-power-off" />Sair</button>
     </nav>
+    <button @click="activeMenu(visibleMenu)" class="btn responsive-menu"><font-awesome-icon icon="fa-solid fa-bars" /></button>
     <router-view/>
   </div>
 </template>
@@ -26,7 +28,8 @@ export default {
   },
   data: () => {
     return {
-      isLoggedIn: false
+      isLoggedIn: false,
+      visibleMenu: false
     }
   },
   methods: {
@@ -36,6 +39,15 @@ export default {
       })
       this.isLoggedIn = false
       return this.isLoggedIn
+    },
+    activeMenu (visibleMenu) {
+      if (!visibleMenu) {
+        document.querySelector('nav').classList = 'active'
+        this.visibleMenu = true
+      } else {
+        document.querySelector('nav').classList = ''
+        this.visibleMenu = false
+      }
     }
   }
 }
