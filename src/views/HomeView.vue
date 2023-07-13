@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import HelloOperand from '@/components/HelloOperand.vue'
 
 export default {

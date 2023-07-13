@@ -14,7 +14,9 @@
 
 <script>
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+
 let auth
+
 export default {
   mounted () {
     auth = getAuth()
