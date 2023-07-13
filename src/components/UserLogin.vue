@@ -76,7 +76,7 @@ export default {
           this.$swal({
             position: 'top-center',
             icon: 'success',
-            title: 'Bem vindo ao app dos deuses!',
+            title: 'Bem vindo ao app dos sonhos!',
             showConfirmButton: false
           })
           this.$router.push('/area-restrita')

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img class="logo" alt="Operand logo" src="../assets/img/operand.webp">
+    <img class="logo" @click="teste" alt="Operand logo" src="../assets/img/operand.webp">
     <HelloOperand msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
@@ -13,6 +13,11 @@ export default {
   name: 'HomeView',
   components: {
     HelloOperand
+  },
+  methods: {
+    teste () {
+      alert('oi')
+    }
   }
 }
 </script>

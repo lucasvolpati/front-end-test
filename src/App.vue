@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/novo-usuario">Novo Usuário</router-link> |
       <router-link to="/login">Login</router-link>
-      <button @click="handleSignOut" v-if="isLoggedIn">Sair</button>
+      <button @click="handleSignOut()" v-if="isLoggedIn">Sair</button>
     </nav>
     <router-view/>
   </div>
@@ -14,27 +14,28 @@
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 let auth
 export default {
-  name: 'App',
   mounted () {
     auth = getAuth()
     onAuthStateChanged(auth, (user) => {
-      // if (user) {
-      //   isLoggedIn = true
-      // } else {
-      //   isLoggedIn = false
-      // }
+      if (user) {
+        this.isLoggedIn = true
+      } else {
+        this.isLoggedIn = false
+      }
     })
+  },
+  data: () => {
+    return {
+      isLoggedIn: false
+    }
   },
   methods: {
     handleSignOut () {
       signOut(auth).then(() => {
-        this.$router.push('/')
+        this.$router.push('/').catch(() => { })
       })
-    }
-  },
-  data: () => {
-    return {
-      isLoggedIn: true
+      this.isLoggedIn = false
+      return this.isLoggedIn
     }
   }
 }
