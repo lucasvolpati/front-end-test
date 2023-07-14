@@ -91,6 +91,40 @@ main {
     
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 16px;
+
+    .group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 16px;
+
+        label {
+            text-align: left;
+        }
+    }
+
+    button {
+        width: 50% !important;
+        align-self: center;
+        background-color: $principal !important;
+        border: none !important;
+        margin-top: 16px;
+        text-transform: uppercase ;
+
+        &:hover {
+            background-color: lighten($color: $principal, $amount: 10) !important;
+        }
+
+        svg {
+            margin-right: 8px;
+        }
+    }
+}
+
 @media(max-width: 600px) {
     .responsive-menu {
         display: block !important;

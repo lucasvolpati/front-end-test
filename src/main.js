@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/scss/app.scss'
-import { initializeApp } from 'firebase/app'
+import firebaseVue from './firebase'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -24,19 +24,23 @@ library.add(faPlus, faRightToBracket, faPowerOff, faBars)
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueSweetalert2)
+Vue.use(firebaseVue)
 
 Vue.config.productionTip = false
 
-const firebaseApp = {
-  apiKey: process.env.VUE_APP_API_KEY,
-  authDomain: process.env.VUE_APP_AUTH_DOMAIN,
-  projectId: process.env.VUE_APP_PROJECT_ID,
-  storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
-  appId: process.env.VUE_APP_APP_ID
-}
+// const firebaseApp = {
+//   apiKey: process.env.VUE_APP_API_KEY,
+//   authDomain: process.env.VUE_APP_AUTH_DOMAIN,
+//   projectId: process.env.VUE_APP_PROJECT_ID,
+//   storageBucket: process.env.VUE_APP_STORAGE_BUCKET,
+//   messagingSenderId: process.env.VUE_APP_MESSAGING_SENDER_ID,
+//   appId: process.env.VUE_APP_APP_ID
+// }
 
-initializeApp(firebaseApp)
+// const fireApp = initializeApp(firebaseApp)
+// const db = getFirestore(fireApp)
+
+// Vue.use(db)
 
 new Vue({
   router,
