@@ -2,7 +2,15 @@
 
 ## 💻 Hello there!
 
-This project is a simple formulary to register and authenticate log-in/log-out with Firebase Auth 
+This project is a simple form to register users, i'm using:
+
+* Vue 2
+* Firebase Auth
+* Firebase Cloud Firestore
+* Firebase Hosting to deploy the production version
+
+### <a href='https://front-end-test-14163.web.app/'>Here</a> you can visualize the project.
+
 
 ## Project setup
 ```
